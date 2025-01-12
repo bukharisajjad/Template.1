@@ -14,7 +14,7 @@ export default function Hero(){
             </div>
             {/* right */}
             <div className="relative">
-                <Image src={"/Front Page.jpg"} className="w-[500px] mr-4" width={200} height={200} alt="Front Page"></Image>
+                <Image src={"/Front Page.jpg"} className="w-[493px] mr-4" width={200} height={200} alt="Front Page"></Image>
             {/* Star Vectors */}
                 <Image src={"/Vector.jpg"} className="w-[40px] md:w-[80px] absolute top-12 right-[50px] md:top-[50px] md:right-[30px]" width={200} height={200} alt="Star"></Image>
                 <Image src={"/Vectorr.jpg"} className="w-[25px] md:w-[50px] absolute top-[175px] md:top-[200px] left-7 md:left-[10px]" width={200} height={200} alt="Star"></Image>

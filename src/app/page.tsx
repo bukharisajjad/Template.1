@@ -1,15 +1,19 @@
+
 import Hero from "@/components/Hero";
-import Header from "../components/Header";
-import Topbar from "../components/topbar";
+import Fonts from "../components/fonts";
+import Products from "./products/page";
+import Top_sell from "./products/sell";
+
 
 export default function Home() {
   return (
 
     <div>
 
-      <Topbar/>
-      <Header/>
       <Hero/>
+      <Fonts/>
+      <Products/>
+      <Top_sell/>
 
     </div>
 
