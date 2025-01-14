@@ -11,20 +11,22 @@ import { NavigationMenuDemo } from "./NavigationMenu";
 
 export default function Header() {
     return (
-        <header className="bg-white w-full h-[80px] flex justify-between items-center">
+        <header className="bg-white w-full h-[80px] flex justify-between items-center max-w-screen-2xl mx-auto">
             {/* left */}
             <div className="flex justify-center items-center">
                 <SheetSide />
+                <Link href={"/"}>
                 <h1 className="text-xl sm:text-3xl font-extrabold pl-2">SHOP.CO</h1>
+                </Link>
             </div>
 
             {/* navbar */}
             <ul className="hidden md:block">
                 <li className="flex items-center space-x-5">
-                    <Link href={""}><NavigationMenuDemo/></Link>
-                    <Link href={""}>On Sale</Link>
-                    <Link href={""}>New Arrivals</Link>
-                    <Link href={""}>Brands</Link>
+                    <Link href={"/"}><NavigationMenuDemo/></Link>
+                    <Link href={"/"}>On Sale</Link>
+                    <Link href={"/products"}>New Arrivals</Link>
+                    <Link href={"/"}>Brands</Link>
                 </li>
             </ul>
 
@@ -38,9 +40,15 @@ export default function Header() {
 
             {/* cart-icon and account-icon */}
             <div className="flex items-center mr-10 space-x-3">
+
                 <IoSearchSharp className="text-xl ml-3 md:hidden" />
+
+                <Link href={"/cart"}>
                 <BsCart3 className="text-xl" />
+                </Link>
+
                 <RiAccountCircleLine className="text-xl" />
+
             </div>
 
 

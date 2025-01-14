@@ -8,7 +8,7 @@ const Montserra = Montserrat ({subsets:["latin"]});
 
 export default function Fonts (){
     return(
-        <div className="bg-black w-full h-full md:h-[80px] flex justify-center space-x-5 md:justify-between items-center px-full md:px-20 flex-wrap">
+        <div className="bg-black w-full h-full md:h-[80px] flex justify-center space-x-5 md:justify-between items-center px-full md:px-20 flex-wrap max-w-screen-2xl mx-auto">
             <h1 className={`${Playfair.className} text-white text-2xl md:text-4xl`}>VERSACE</h1>
             <h1 className={`${Cinze.className} text-white text-2xl md:text-4xl`}>ZARA</h1>
             <h1 className={`${Bodoni.className} text-white text-2xl md:text-4xl`}>GUCCI</h1>

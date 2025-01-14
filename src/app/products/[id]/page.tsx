@@ -5,8 +5,16 @@ import Image from 'next/image';
 import { useParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Check, Minus, Plus } from "lucide-react";
+import Allreviews from "@/components/allreviews";
+import Tshirts from "@/components/suggestion";
+import { BreadcrumbDemo } from "@/components/Breadcrumb";
 
-let star = [<FaStar />, <FaStar />, <FaStar />, <FaStar />, <FaStarHalf />];
+let star = [<FaStar key={1} />,
+            <FaStar key={2} />,
+            <FaStar key={3} />,
+            <FaStar key={4} />,
+            <FaStarHalf key={5} />,
+        ];
 
 
 interface Iproducts {
@@ -22,47 +30,171 @@ interface Iproducts {
 }
 
 let products: Iproducts[] = [
+   
+    // new arrival
+    {
+        title: "T-shirt with Tape Details",
+        id: 1,
+        price: "$120",
+        img_url: "/a.1.png",
+        img1: "/a.1.png",
+        img2: "/image.2.png",
+        img3: "/image.3.png",
+
+    },
+    {
+        title: "Skinny Fit Jeans",
+        id: 2,
+        price: "$240",
+        img_url: "/a.2.png",
+        img1: "/a.2.png",
+        img2: "/image.2.png",
+        img3: "/image.3.png",
+
+    },
+    {
+        title: "Checkered Shirt",
+        id: 3,
+        price: "$180",
+        img_url: "/a.3.png",
+        img1: "/a.3.png",
+        img2: "/image.2.png",
+        img3: "/image.3.png",
+
+    },
+    {
+        title: "Sleeve Striped T-shirt",
+        id: 4,
+        price: "$130",
+        img_url: "/a.4.png",
+        img1: "/a.4.png",
+        img2: "/image.2.png",
+        img3: "/image.3.png",
+
+    },
+
+    // top selling
     {
         title: "Vertical Striped Shirt",
-        id: 1,
+        id: 5,
         price: "$212",
         img_url: "/b.1.png",
-        was: "$232",
-        img1: "/image.1.png",
+        img1: "/b.1.png",
         img2: "/image.2.png",
         img3: "/image.3.png",
 
     },
     {
         title: "Courage Graphic T-Shirt",
-        id: 2,
+        id: 6,
         price: "$145",
         img_url: "/b.2.png",
-        img1: "/image.1.png",
+        img1: "/b.2.png",
         img2: "/image.2.png",
         img3: "/image.3.png",
 
     },
     {
         title: "Loose Fit Bermuda Shorts",
-        id: 3,
+        id: 7,
         price: "$80",
         img_url: "/b.3.png",
-        img1: "/image.1.png",
+        img1: "/b.3.png",
         img2: "/image.2.png",
         img3: "/image.3.png",
 
     },
     {
         title: "Faded Skinny Jeans",
-        id: 4,
+        id: 8,
         price: "$210",
         img_url: "/b.4.png",
-        img1: "/image.1.png",
+        img1: "/b.4.png",
         img2: "/image.2.png",
         img3: "/image.3.png",
 
-    }
+    },
+    {
+        title: "Gradient Graphic T-shirt",
+        id: 9,
+        price: "$145",
+        img_url: "/d.2.png",
+        img1: "/d.2.png",
+        img2: "/image.2.png",
+        img3: "/image.3.png",
+    },
+    {
+        title: "Polo with Tipping Details",
+        id: 10,
+        price: "$180",
+        img_url: "/d.3.png",
+        img1: "/d.3.png",
+        img2: "/image.2.png",
+        img3: "/image.3.png",
+    },
+    {
+        title: "Black Striped T-shirt",
+        id: 11,
+        price: "$120",
+        img_url: "/d.4.png",
+        img1: "/d.4.png",
+        img2: "/image.2.png",
+        img3: "/image.3.png",
+    },
+    {
+        title: "Skinny Fit Jeans",
+        id: 12,
+        price: "$240",
+        img_url: "/a.2.png",
+        img1: "/a.2.png",
+        img2: "/image.2.png",
+        img3: "/image.3.png",
+    },
+    {
+        title: "Checkered Shirt",
+        id: 13,
+        price: "$180",
+        img_url: "/a.3.png",
+        img1: "/a.3.png",
+        img2: "/image.2.png",
+        img3: "/image.3.png",
+    },
+    {
+        title: "Sleeve Striped T-shirt",
+        id: 14,
+        price: "$130",
+        img_url: "/a.4.png",
+        img1: "/a.4.png",
+        img2: "/image.2.png",
+        img3: "/image.3.png",
+    },
+    {
+        title: "Vertical Striped Shirt",
+        id: 15,
+        price: "$212",
+        img_url: "/b.1.png",
+        img1: "/b.1.png",
+        img2: "/image.2.png",
+        img3: "/image.3.png",
+    },
+    {
+        title: "Courage Graphic T-shirt",
+        id: 16,
+        price: "$145",
+        img_url: "/b.2.png",
+        img1: "/b.2.png",
+        img2: "/image.2.png",
+        img3: "/image.3.png",
+    },
+    {
+        title: "Loose Fit Bermuda Shorts",
+        id: 17,
+        price: "$80",
+        img_url: "/b.3.png",
+        img1: "/b.3.png",
+        img2: "/image.2.png",
+        img3: "/image.3.png",
+    },
 ];
 
 export default function Pro_Detail() {
@@ -70,11 +202,13 @@ export default function Pro_Detail() {
     const id = params.id // this is dynamic id
     const items = products.find((items) => items.id === Number(id))
     if (!items) {
-        return <h1>Product not found</h1>
+        return <h1 className="text-red-500 font-bold">Opsss....!! Product not found...</h1>
     }
 
     return (
-        <div className="flex flex-col md:flex-row md:w-full justify-center sm:justify-evenly sm:mt-10 p-5 sm:p-0">
+        <>
+        <BreadcrumbDemo/>
+        <div className="flex flex-col md:flex-row md:w-full justify-center sm:justify-evenly sm:mt-10 p-5 sm:p-0 max-w-screen-2xl mx-auto">
             {/* left */}
             <div className="flex sm:flex-col justify-evenly items-center w-full sm:w-[152px] order-2 sm:order-1">
                 {/* images */}
@@ -91,9 +225,10 @@ export default function Pro_Detail() {
             {/* right div */}
             <div className="w-full sm:w-[600px] h-[525px] mt-3 order-3">
                 <h1 className="text-2xl md:text-3xl font-bold">One Life Graphic T-shirt</h1>
-                <div className="flex text-yellow-400">
-                    {star}
-                </div>
+                    <div className="flex text-yellow-400 mt-1">
+                        {star.map((icon, index) => (
+                        <span key={index}>{icon}</span>
+                    ))}</div>
                 <p className="font-bold mt-1">{items.price} <span>{items.was}</span></p>
                 <p>This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.</p>
                 {/* select color */}
@@ -128,5 +263,8 @@ export default function Pro_Detail() {
                 </div>
             </div>
         </div>
+        <Allreviews></Allreviews>
+        <Tshirts/>
+        </>
     )
 }

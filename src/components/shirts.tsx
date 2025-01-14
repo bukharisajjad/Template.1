@@ -14,31 +14,63 @@ interface Iproducts {
 
 let products: Iproducts[] = [
     {
-        title: "T-shirt with Tape Details",
-        id: 1,
+        title: "Gradient Graphic T-shirt",
+        id: 9,
+        price: "$145",
+        img_url: "/d.2.png",
+    },
+    {
+        title: "Polo with Tipping Details",
+        id: 10,
+        price: "$180",
+        img_url: "/d.3.png",
+    },
+    {
+        title: "Black Striped T-shirt",
+        id: 11,
         price: "$120",
-        img_url: "/a.1.png",
+        img_url: "/d.4.png",
+        was:"$150",
     },
     {
         title: "Skinny Fit Jeans",
-        id: 2,
+        id: 12,
         price: "$240",
         img_url: "/a.2.png",
         was:"$260",
     },
     {
         title: "Checkered Shirt",
-        id: 3,
+        id: 13,
         price: "$180",
         img_url: "/a.3.png",
     },
     {
         title: "Sleeve Striped T-shirt",
-        id: 4,
+        id: 14,
         price: "$130",
         img_url: "/a.4.png",
         was:"$160",
-    }
+    },
+    {
+        title: "Vertical Striped Shirt",
+        id: 15,
+        price: "$212",
+        img_url: "/b.1.png",
+        was:"$232",
+    },
+    {
+        title: "Courage Graphic T-shirt",
+        id: 16,
+        price: "$145",
+        img_url: "/b.2.png",
+    },
+    {
+        title: "Loose Fit Bermuda Shorts",
+        id: 17,
+        price: "$80",
+        img_url: "/b.3.png",
+    },
 ];
 
 let star = [<FaStar key={1} />,
@@ -48,16 +80,16 @@ let star = [<FaStar key={1} />,
             <FaStarHalf key={5} />
         ];
 
-export default function Products() {
+export default function CasualShirts() {
     return (
         <div className="w-full h-full sm:h-[500px] mt-10">
-            <h1 className="text-3xl md:text-4xl font-extrabold text-center">NEW ARRIVALS</h1>
-            <div className="flex flex-col md:flex-row items-center justify-center md:justify-between px-full md:px-20 mt-10">
+            <h1 className="text-3xl md:text-4xl font-extrabold ml-10">CASUAL</h1>
+            <div className="flex flex-wrap flex-col md:flex-row items-center justify-center md:justify-between px-full md:px-10 mt-10">
                 {products.map((data) => {
                     return (
                         <div key={data.id}>
                             <Link href={`/products/${data.id}`}>
-                            <div className="w-[190px] h-[190px] md:w-[250px] md:h-[250px] bg-[#F0EEED] rounded-[20px]">
+                            <div className="w-[250px] h-[250px] bg-[#F0EEED] rounded-[20px]">
                                 <Image src={data.img_url} className="w-full h-full rounded-[20px]" alt={data.title} width={100} height={100} ></Image>
                             </div>
                             </Link>

@@ -15,32 +15,37 @@ interface Iproducts {
 let products: Iproducts[] = [
     {
         title: "Vertical Striped Shirt",
-        id: 1,
+        id: 5,
         price: "$212",
         img_url: "/b.1.png",
         was:"$232",
     },
     {
         title: "Courage Graphic T-Shirt",
-        id: 2,
+        id: 6,
         price: "$145",
         img_url: "/b.2.png",
     },
     {
         title: "Loose Fit Bermuda Shorts",
-        id: 3,
+        id: 7,
         price: "$80",
         img_url: "/b.3.png",
     },
     {
         title: "Faded Skinny Jeans",
-        id: 4,
+        id: 8,
         price: "$210",
         img_url: "/b.4.png",
     }
 ];
 
-let star = [<FaStar />, <FaStar />, <FaStar />, <FaStar />, <FaStarHalf />];
+let star = [<FaStar key={1} />,
+            <FaStar key={2} />,
+            <FaStar key={3} />,
+            <FaStar key={4} />,
+            <FaStarHalf key={5} />
+        ];
 
 export default function Top_sell() {
     return (
@@ -57,7 +62,10 @@ export default function Top_sell() {
                             </Link>
                             <div>
                             <p className="text-xl font-bold mt-2">{data.title}</p>
-                            <p className="flex text-yellow-400 mt-1">{star}</p>
+                                <div className="flex text-yellow-400 mt-1">
+                                    {star.map((icon, index) => (
+                                    <span key={index}>{icon}</span>
+                                ))}</div>
                             <p className="font-bold mt-1">{data.price} <span className="text-gray-400 font-bold line-through">{data.was}</span></p>
                             </div>
                         </div>
